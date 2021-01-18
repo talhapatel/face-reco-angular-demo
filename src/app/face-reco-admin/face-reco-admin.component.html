@@ -1,0 +1,50 @@
+<div class="container" style="width: 80vw">
+  <h2>Face-Recognizatin</h2>
+
+  <h5 *ngIf="!isModuleLoaded">Please Wait Module is loading</h5>
+  <div *ngIf="isModuleLoaded" class="row">
+    <div class="six columns">
+      <div class="row">
+        <div class="six columns">
+          <input type="text" [(ngModel)]="empId" placeholder="employee Id" />
+        </div>
+        <div class="six columns">
+          <input
+            type="text"
+            [(ngModel)]="empName"
+            placeholder="employee Name"
+          />
+        </div>
+      </div>
+      <input #file type="file" (change)="uploadImage($event)" />
+      <button *ngIf="isSave" (click)="singleTrainData()">Save Data</button>
+      <!--  <button (click)="verify()">Verify Data</button> -->
+      <label *ngIf="!isTrainData">Please wait geting Image train Data...</label>
+    </div>
+    <div class="six columns">
+      <div class="camera" style="position: relative">
+        <video
+          id="video"
+          #video
+          width="640"
+          height="480"
+          style="width: 100%"
+          (play)="onPlayVideo()"
+        >
+          Video Not Supported
+        </video>
+        <canvas
+          #canvas
+          id="canvas"
+          width="640"
+          height="480"
+          style="width: 100%"
+        >
+        </canvas>
+      </div>
+      <br />
+      <button *ngIf="!showStop" (click)="startRecognization()">Start</button>
+      <button *ngIf="showStop" (click)="stopRecognization()">Stop</button>
+    </div>
+  </div>
+</div>
