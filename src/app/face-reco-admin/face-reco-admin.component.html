@@ -1,7 +1,7 @@
 <div class="container" style="width: 80vw">
-  <h2>Face-Recognizatin</h2>
+  <h2>Face-Recognization</h2>
 
-  <h5 *ngIf="!isModuleLoaded">Please Wait Module is loading</h5>
+  <h5 *ngIf="!isModuleLoaded">Please Wait Module is loading...</h5>
   <div *ngIf="isModuleLoaded" class="row">
     <div class="six columns">
       <div class="row">
@@ -19,7 +19,7 @@
       <input #file type="file" (change)="uploadImage($event)" />
       <button *ngIf="isSave" (click)="singleTrainData()">Save Data</button>
       <!--  <button (click)="verify()">Verify Data</button> -->
-      <label *ngIf="!isTrainData">Please wait geting Image train Data...</label>
+      <label *ngIf="!isTrainData">Please wait train Image...</label>
     </div>
     <div class="six columns">
       <div class="camera" style="position: relative">
